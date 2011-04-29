@@ -1,0 +1,392 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/JQuery/View/Helper/JQuery.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>ZendX/JQuery.php <span class="nb-faded-text">(Require Once)</span><br>Zend/Registry.php <span class="nb-faded-text">(Require Once)</span><br>Zend/View/Helper/Abstract.php <span class="nb-faded-text">(Require Once)</span><br>ZendX/JQuery/View/Helper/JQuery/Container.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_JQuery_View_Helper_JQuery" class="class">
+<h3>ZendX_JQuery_View_Helper_JQuery</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_JQuery</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">View</a>
+             
+        </div>
+<label class="property-key">uses</label><div class="property-value">
+<a title="">Zend_Json</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>jQuery Helper. Functions as a stack for code and loads all jQuery dependencies.</em><br>
+<br><div id="methods_ZendX_JQuery_View_Helper_JQuery">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::__call()">__call</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::disableNoConflictMode()">disableNoConflictMode</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::enableNoConflictMode()">enableNoConflictMode</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::getJQueryHandler()">getJQueryHandler</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::getNoConflictMode()">getNoConflictMode</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::jQuery()">jQuery</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery::setView()">setView</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::__call()"></a><h3>__call<span class="nb-faded-text">(
+          string
+             
+            $method,
+          array
+             
+            $args,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Proxy to container methods</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$method</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$args</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td>For invalid method calls</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Initialize helper</em><br><small><p>Retrieve container from registry or create new container and store in
+registry.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::disableNoConflictMode()"></a><h3>disableNoConflictMode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Disable noConflict Mode of jQuery if this was previously enabled.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::enableNoConflictMode()"></a><h3>enableNoConflictMode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Enable the jQuery internal noConflict Mode to work with
+other Javascript libraries. Will setup jQuery in the variable
+$j instead of $ to overcome conflicts.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>link</td>
+<td>http://docs.jquery.com/Using_jQuery_with_Other_Libraries</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::getJQueryHandler()"></a><h3>getJQueryHandler<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">String</span>
+</h3>
+<h4>Description</h4>
+<em>Return current jQuery handler based on noConflict mode settings.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>String</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::getNoConflictMode()"></a><h3>getNoConflictMode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Return current status of the jQuery no Conflict Mode</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::jQuery()"></a><h3>jQuery<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Return jQuery View Helper class, to execute jQuery library related functions.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::setView()"></a><h3>setView<span class="nb-faded-text">(
+          Zend_View_Interface
+             
+            $view,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Set view object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$view</td>
+<td style="white-space: normal;">Zend_View_Interface |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_JQuery_View_Helper_JQuery">
+<h4>Properties</h4>
+<a href="#ZendX_JQuery_View_Helper_JQuery::%24noConflictMode">$noConflictMode</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery::%24view">$view</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::$noConflictMode"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          static </span>$noConflictMode
+          =
+          false</h3>
+<em>jQuery no Conflict Mode</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery::$view"></a><h3>
+<span class="nb-faded-text"> 
+          public 
+          </span>$view
+          =
+          </h3>
+<em>Zend_View_Interface</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

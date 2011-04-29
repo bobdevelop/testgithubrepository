@@ -1,0 +1,660 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/Db/Statement/Firebird.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Db/Statement.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_Db_Statement_Firebird" class="class">
+<h3>ZendX_Db_Statement_Firebird</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">ZendX</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_Db</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">Statement</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>Extends for Firebird</em><br>
+<br><div id="methods_ZendX_Db_Statement_Firebird">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::_bindParam()">_bindParam</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::_execute()">_execute</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::_prepare()">_prepare</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::close()">close</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::closeCursor()">closeCursor</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::columnCount()">columnCount</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::errorCode()">errorCode</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::errorInfo()">errorInfo</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::fetch()">fetch</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::nextRowset()">nextRowset</a>,
+      <a style="font-style: italic;" href="#ZendX_Db_Statement_Firebird::rowCount()">rowCount</a>,
+      <div class="method">
+<a id="ZendX_Db_Statement_Firebird::_bindParam()"></a><h3>_bindParam<span class="nb-faded-text">(
+          mixed
+             
+            $parameter,
+          mixed
+             
+            $variable,
+          mixed
+             
+            $type
+            = null,
+          mixed
+             
+            $length
+            = null,
+          mixed
+             
+            $options
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Binds a parameter to the specified variable name.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$parameter</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>Name the parameter, either integer or string.</td>
+<td></td>
+</tr>
+<tr>
+<td>$variable</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>Reference to PHP variable containing the value.</td>
+<td></td>
+</tr>
+<tr>
+<td>$type</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>OPTIONAL Datatype of SQL parameter.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$length</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>OPTIONAL Length of SQL parameter.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td>OPTIONAL Other options.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Db_Statement_Firebird_Exception.html#ZendX_Db_Statement_Firebird_Exception">ZendX_Db_Statement_Firebird_Exception<br><small></small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::_execute()"></a><h3>_execute<span class="nb-faded-text">(
+          array
+             
+            $params
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Executes a prepared statement.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$params</td>
+<td style="white-space: normal;">array |
+                </td>
+<td>OPTIONAL Values to bind to parameter placeholders.</td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Db_Statement_Firebird_Exception.html#ZendX_Db_Statement_Firebird_Exception">ZendX_Db_Statement_Firebird_Exception<br><small></small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::_prepare()"></a><h3>_prepare<span class="nb-faded-text">(
+          string
+             
+            $sql,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$sql</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Db_Statement_Firebird_Exception.html#ZendX_Db_Statement_Firebird_Exception">ZendX_Db_Statement_Firebird_Exception<br><small></small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::close()"></a><h3>close<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Closes the cursor and the statement.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::closeCursor()"></a><h3>closeCursor<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Closes the cursor, allowing the statement to be executed again.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::columnCount()"></a><h3>columnCount<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the number of columns in the result set.</em><br><small><p>Returns null if the statement has no result set metadata.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>The number of columns.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::errorCode()"></a><h3>errorCode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves the error code, if any, associated with the last operation on
+the statement handle.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td>error code.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::errorInfo()"></a><h3>errorInfo<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves an array of error information, if any, associated with the
+last operation on the statement handle.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::fetch()"></a><h3>fetch<span class="nb-faded-text">(
+          int
+             
+            $style
+            = null,
+          int
+             
+            $cursor
+            = null,
+          int
+             
+            $offset
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Fetches a row from the result set.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$style</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>OPTIONAL Fetch mode for this fetch operation.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$cursor</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>OPTIONAL Absolute, relative, or other.</td>
+<td>null</td>
+</tr>
+<tr>
+<td>$offset</td>
+<td style="white-space: normal;">int |
+                </td>
+<td>OPTIONAL Number for absolute or relative cursors.</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td>Array, object, or scalar depending on fetch mode.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::nextRowset()"></a><h3>nextRowset<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">bool</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieves the next rowset (result set) for a SQL statement that has
+multiple result sets.  An example is a stored procedure that returns
+the results of multiple queries.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>bool</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Db_Statement_Firebird_Exception.html#ZendX_Db_Statement_Firebird_Exception">ZendX_Db_Statement_Firebird_Exception<br><small></small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::rowCount()"></a><h3>rowCount<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">int</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the number of rows affected by the execution of the
+last INSERT, DELETE, or UPDATE statement executed by this
+statement object.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>int</td>
+<td>The number of rows affected.</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_Db_Statement_Firebird">
+<h4>Properties</h4>
+<a href="#ZendX_Db_Statement_Firebird::%24_keys">$_keys</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_meta">$_meta</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_stmtColumnCount">$_stmtColumnCount</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_stmtPrepared">$_stmtPrepared</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_stmtResult">$_stmtResult</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_stmtRowCount">$_stmtRowCount</a>,
+      <a href="#ZendX_Db_Statement_Firebird::%24_values">$_values</a>,
+      <div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_keys"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_keys
+          =
+          array</h3>
+<em>Column names.array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_meta"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_meta
+          =
+          null</h3>
+<em>array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_stmtColumnCount"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_stmtColumnCount
+          =
+          0</h3>
+<em>The firebird_stmtResult resource.firebird_result</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_stmtPrepared"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_stmtPrepared
+          =
+          null</h3>
+<em>The firebird_stmtPrepared resource.firebird_stmtPrepared</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_stmtResult"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_stmtResult
+          =
+          null</h3>
+<em>The firebird_stmtResult resource.firebird_result</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_stmtRowCount"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_stmtRowCount
+          =
+          0</h3>
+<em>The firebird_stmtResult resource.firebird_result</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Db_Statement_Firebird::$_values"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_values
+          =
+          array</h3>
+<em>Fetched result values.array</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

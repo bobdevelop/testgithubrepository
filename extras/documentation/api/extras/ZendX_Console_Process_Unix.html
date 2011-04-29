@@ -1,0 +1,1049 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/Console/Process/Unix.php</h1>
+<div class="file_menu">
+<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_Console_Process_Unix" class="class">
+<h3>ZendX_Console_Process_Unix</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">category</label><div class="property-value">
+<a title="">ZendX</a>
+             
+        </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_Console</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">Yes 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>ZendX_Console_Process_Unix allows you to spawn a class as a separated process</em><br>
+<br><div id="methods_ZendX_Console_Process_Unix">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_Console_Process_Unix::__construct()">__construct</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::__destruct()">__destruct</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_callCallbackMethod()">_callCallbackMethod</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_cleanProcessContext()">_cleanProcessContext</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_createIpcSegment()">_createIpcSegment</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_createIpcSemaphore()">_createIpcSemaphore</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_readFromIpcSegment()">_readFromIpcSegment</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_run()">_run</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_sendSigUsr1()">_sendSigUsr1</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_setAlive()">_setAlive</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_sigHandler()">_sigHandler</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_waitForIpcSemaphore()">_waitForIpcSemaphore</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_writeToIpcSegment()">_writeToIpcSegment</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::_writeVariable()">_writeVariable</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::getLastAlive()">getLastAlive</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::getPid()">getPid</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::getVariable()">getVariable</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::isRunning()">isRunning</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::setVariable()">setVariable</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::start()">start</a>,
+      <a style="font-style: italic;" href="#ZendX_Console_Process_Unix::stop()">stop</a>,
+      <div class="method">
+<a id="ZendX_Console_Process_Unix::__construct()"></a><h3>__construct<span class="nb-faded-text">(
+          integer
+             
+            $puid
+            = null,
+          integer
+             
+            $guid
+            = null,
+          integer
+             
+            $umask
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Constructor method</em><br><small><p>Allocates a new pseudo-thread object. Optionally, set a PUID, a GUID and
+a UMASK for the child process. This also initialize Shared Memory
+Segments for process communications.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$puid</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$guid</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$umask</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When running on windows</small></a></td>
+</tr>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When running in web enviroment</small></a></td>
+</tr>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When shmop_* functions don&amp;#039;t exist</small></a></td>
+</tr>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When pcntl_* functions don&amp;#039;t exist</small></a></td>
+</tr>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When posix_* functions don&amp;#039;t exist</small></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::__destruct()"></a><h3>__destruct<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">n/a</span>
+</h3>
+<h4>Description</h4>
+<em>Stop the child on destruction</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_callCallbackMethod()"></a><h3>_callCallbackMethod<span class="nb-faded-text">(
+          string
+             
+            $methodName,
+          array
+             
+            $argList
+            = array,
+          string
+             
+            $type
+            = self,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>This is called from within the parent; all the communication stuff
+is done here.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$methodName</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$argList</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td>array</td>
+</tr>
+<tr>
+<td>$type</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>self</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_cleanProcessContext()"></a><h3>_cleanProcessContext<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Destroy thread context and free relative resources.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_createIpcSegment()"></a><h3>_createIpcSegment<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Create an IPC segment</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When SHM segment can&amp;#039;t be created</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_createIpcSemaphore()"></a><h3>_createIpcSemaphore<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Create IPC semaphore</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When semaphore can&amp;#039;t be created</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_readFromIpcSegment()"></a><h3>_readFromIpcSegment<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Read data from IPC segment</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When writing of SHM segment fails</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_run()"></a><h3>_run<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>This method actually implements the pseudo-thread logic.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_sendSigUsr1()"></a><h3>_sendSigUsr1<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Sends signal to the child process</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_setAlive()"></a><h3>_setAlive<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Set a pseudo-thread property that can be read from parent process
+in order to know the child activity.</em><br><small><p>Practical usage requires that child process calls this method at regular
+time intervals; parent will use the getLastAlive() method to know
+the elapsed time since the last pseudo-thread life signals...</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_sigHandler()"></a><h3>_sigHandler<span class="nb-faded-text">(
+          integer
+             
+            $signo,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>This is the signal handler that makes the communications between client
+and server possible.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$signo</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_waitForIpcSemaphore()"></a><h3>_waitForIpcSemaphore<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Wait for IPC Semaphore</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_writeToIpcSegment()"></a><h3>_writeToIpcSegment<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Write data to IPC segment</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When writing of SHM segment fails</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::_writeVariable()"></a><h3>_writeVariable<span class="nb-faded-text">(
+          string
+             
+            $name,
+          mixed
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Acutally Write a variable to the shared memory segment</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::getLastAlive()"></a><h3>getLastAlive<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Read the time elapsed since the last child setAlive() call.</em><br><small><p>This method is useful because often we have a pseudo-thread pool and we
+need to know each pseudo-thread status. If the child executes the
+setAlive() method, the parent with getLastAlive() can know that child is
+alive.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::getPid()"></a><h3>getPid<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Returns the PID of the current pseudo-thread.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::getVariable()"></a><h3>getVariable<span class="nb-faded-text">(
+          string
+             
+            $name,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Get a variable from the shared memory segment. Returns NULL if the
+variable doesn't exist.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::isRunning()"></a><h3>isRunning<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Test if the pseudo-thread is already started.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::setVariable()"></a><h3>setVariable<span class="nb-faded-text">(
+          string
+             
+            $name,
+          mixed
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Set a variable into the shared memory segment, so that it can accessed
+both from the parent and from the child process. Variable names
+beginning with underlines are only permitted to interal functions.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When an invalid variable name is supplied</small></a></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::start()"></a><h3>start<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Causes this pseudo-thread to begin parallel execution.</em><br><small><p>This method first checks of all the Shared Memory Segment. If okay, it
+forks the child process, attaches signal handler and returns immediatly.
+The status is set to running, and a PID is assigned. The result is that
+two pseudo-threads are running concurrently: the current thread (which
+returns from the call to the start() method) and the other thread (which
+executes its run() method).</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When SHM segments can&amp;#039;t be created</small></a></td>
+</tr>
+<tr>
+<td>throws</td>
+<td><a href="ZendX_Console_Process_Exception.html#ZendX_Console_Process_Exception">ZendX_Console_Process_Exception<br><small>When process forking fails</small></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::stop()"></a><h3>stop<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Causes the current thread to die.</em><br><small><p>The relative process is killed and disappears immediately from the
+processes list.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_Console_Process_Unix">
+<h4>Properties</h4>
+<a href="#ZendX_Console_Process_Unix::%24_guid">$_guid</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_internalIpcData">$_internalIpcData</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_internalIpcKey">$_internalIpcKey</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_internalSemKey">$_internalSemKey</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_ipcIsOkay">$_ipcIsOkay</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_ipcSegFile">$_ipcSegFile</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_ipcSemFile">$_ipcSemFile</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_isChild">$_isChild</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_isRunning">$_isRunning</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_name">$_name</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_pid">$_pid</a>,
+      <a href="#ZendX_Console_Process_Unix::%24_puid">$_puid</a>,
+      <div class="method">
+<a id="ZendX_Console_Process_Unix::$_guid"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_guid
+          =
+          null</h3>
+<em>GUID of the child process ownerinteger</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_internalIpcData"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_internalIpcData
+          =
+          array</h3>
+<em>A data structure to hold data for Inter Process Communicationsarray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_internalIpcKey"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_internalIpcKey
+          =
+          </h3>
+<em>Key to access to Shared Memory Area.integer</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_internalSemKey"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_internalSemKey
+          =
+          </h3>
+<em>Key to access to Sync Semaphore.integer</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_ipcIsOkay"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_ipcIsOkay
+          =
+          </h3>
+<em>Is Shared Memory Area OK? If not, the start() method will block.boolean</em><br><small>&lt;p&gt;Otherwise we'll have a running child without any communication channel.&lt;/p&gt;
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_ipcSegFile"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_ipcSegFile
+          =
+          </h3>
+<em>Filename of the IPC segment filestring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_ipcSemFile"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_ipcSemFile
+          =
+          </h3>
+<em>Filename of the semaphor filestring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_isChild"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_isChild
+          =
+          false</h3>
+<em>Wether we are into child process or notboolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_isRunning"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_isRunning
+          =
+          false</h3>
+<em>Whether the process is yet forked or notboolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_name"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_name
+          =
+          </h3>
+<em>Unique thread namestring</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_pid"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_pid
+          =
+          null</h3>
+<em>PID of the child processinteger</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_Console_Process_Unix::$_puid"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          </span>$_puid
+          =
+          null</h3>
+<em>UID of the child process ownerinteger</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div id="constants_ZendX_Console_Process_Unix">
+<h4>Constants</h4>
+<a id="ZendX_Console_Process_Unix::RETURN_METHOD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RETURN_METHOD<span class="nb-faded-text">
+         = void_method</span>
+</h3>
+<em>Return method</em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_Console_Process_Unix::VOID_METHOD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>VOID_METHOD<span class="nb-faded-text">
+         = void_method</span>
+</h3>
+<em>Void method</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

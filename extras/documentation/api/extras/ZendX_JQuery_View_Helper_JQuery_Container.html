@@ -1,0 +1,1733 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/JQuery/View/Helper/JQuery/Container.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>ZendX/JQuery.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_JQuery_View_Helper_JQuery_Container" class="class">
+<h3>ZendX_JQuery_View_Helper_JQuery_Container</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_JQuery</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">View</a>
+             
+        </div>
+<label class="property-key">uses</label><div class="property-value">
+<a title="">ZendX_JQuery_View_Helper_JQuery_Container</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>jQuery View Helper. Transports all jQuery stack and render information across all views.</em><br>
+<br><div id="methods_ZendX_JQuery_View_Helper_JQuery_Container">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::__toString()">__toString</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryLibraryBaseCdnUri()">_getJQueryLibraryBaseCdnUri</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryLibraryPath()">_getJQueryLibraryPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryUiLibraryBaseCdnUri()">_getJQueryUiLibraryBaseCdnUri</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryUiLibraryPath()">_getJQueryUiLibraryPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_renderExtras()">_renderExtras</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_renderScriptTags()">_renderScriptTags</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::_renderStylesheets()">_renderStylesheets</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::addJavascript()">addJavascript</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::addJavascriptFile()">addJavascriptFile</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::addOnLoad()">addOnLoad</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::addStylesheet()">addStylesheet</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::clearJavascript()">clearJavascript</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::clearJavascriptFiles()">clearJavascriptFiles</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::clearOnLoadActions()">clearOnLoadActions</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::disable()">disable</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::enable()">enable</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getCdnVersion()">getCdnVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getJavascript()">getJavascript</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getJavascriptFiles()">getJavascriptFiles</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getLocalPath()">getLocalPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getOnLoadActions()">getOnLoadActions</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getRenderMode()">getRenderMode</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getStylesheets()">getStylesheets</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getUiCdnVersion()">getUiCdnVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getUiLocalPath()">getUiLocalPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getUiPath()">getUiPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getUiVersion()">getUiVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::getVersion()">getVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::isEnabled()">isEnabled</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::javascriptCaptureEnd()">javascriptCaptureEnd</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::javascriptCaptureStart()">javascriptCaptureStart</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::onLoadCaptureEnd()">onLoadCaptureEnd</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::onLoadCaptureStart()">onLoadCaptureStart</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setCdnSsl()">setCdnSsl</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setCdnVersion()">setCdnVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setLocalPath()">setLocalPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setRenderMode()">setRenderMode</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setUiCdnVersion()">setUiCdnVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setUiLocalPath()">setUiLocalPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setUiVersion()">setUiVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setVersion()">setVersion</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::setView()">setView</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::uiDisable()">uiDisable</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::uiEnable()">uiEnable</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::uiIsEnabled()">uiIsEnabled</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::useCdn()">useCdn</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::useLocalPath()">useLocalPath</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::useUiCdn()">useUiCdn</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_JQuery_Container::useUiLocal()">useUiLocal</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::__toString()"></a><h3>__toString<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>String representation of jQuery environment</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryLibraryBaseCdnUri()"></a><h3>_getJQueryLibraryBaseCdnUri<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryLibraryPath()"></a><h3>_getJQueryLibraryPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Internal function that constructs the include path of the jQuery library.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryUiLibraryBaseCdnUri()"></a><h3>_getJQueryUiLibraryBaseCdnUri<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_getJQueryUiLibraryPath()"></a><h3>_getJQueryUiLibraryPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_renderExtras()"></a><h3>_renderExtras<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Renders all javascript code related stuff of the jQuery enviroment.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_renderScriptTags()"></a><h3>_renderScriptTags<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Renders all javascript file related stuff of the jQuery enviroment.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::_renderStylesheets()"></a><h3>_renderStylesheets<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Render jQuery stylesheets</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::addJavascript()"></a><h3>addJavascript<span class="nb-faded-text">(
+          string
+             
+            $js,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add arbitrary javascript to execute in jQuery JS container</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$js</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::addJavascriptFile()"></a><h3>addJavascriptFile<span class="nb-faded-text">(
+          
+             
+            $path,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add a Javascript File to the include stack.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$path</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::addOnLoad()"></a><h3>addOnLoad<span class="nb-faded-text">(
+          string
+             
+            $callback,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add a script to execute onLoad</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$callback</td>
+<td style="white-space: normal;">string |
+                </td>
+<td>Lambda</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::addStylesheet()"></a><h3>addStylesheet<span class="nb-faded-text">(
+          string
+             
+            $path,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add a stylesheet</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$path</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::clearJavascript()"></a><h3>clearJavascript<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Clear arbitrary javascript stack</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::clearJavascriptFiles()"></a><h3>clearJavascriptFiles<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Clear all currently registered Javascript files.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::clearOnLoadActions()"></a><h3>clearOnLoadActions<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Clear the onLoadActions stack.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::disable()"></a><h3>disable<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Disable jQuery</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::enable()"></a><h3>enable<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Enable jQuery</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getCdnVersion()"></a><h3>getCdnVersion<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get CDN version</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>deprecated</td>
+<td>As of version 1.8, use {@link getVersion()} instead.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getJavascript()"></a><h3>getJavascript<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Return all registered javascript statements</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getJavascriptFiles()"></a><h3>getJavascriptFiles<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">Array</span>
+</h3>
+<h4>Description</h4>
+<em>Return all currently registered Javascript files.</em><br><small><p>This does not include the jQuery library, which is handled by another retrieval
+strategy.</p>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>Array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getLocalPath()"></a><h3>getLocalPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get local path to jQuery</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getOnLoadActions()"></a><h3>getOnLoadActions<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve all registered onLoad actions</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getRenderMode()"></a><h3>getRenderMode<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">integer</span>
+</h3>
+<h4>Description</h4>
+<em>Return bitmask of the current Render Mode</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>integer</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getStylesheets()"></a><h3>getStylesheets<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">array</span>
+</h3>
+<h4>Description</h4>
+<em>Retrieve registered stylesheets</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>array</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getUiCdnVersion()"></a><h3>getUiCdnVersion<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">String</span>
+</h3>
+<h4>Description</h4>
+<em>Return jQuery UI CDN Version</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>String</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>deprecated</td>
+<td>As of 1.8 use {@link getUiVersion()}</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getUiLocalPath()"></a><h3>getUiLocalPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Proxies to getUiPath() for consistency in function naming.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getUiPath()"></a><h3>getUiPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Return the local jQuery UI Path if set.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getUiVersion()"></a><h3>getUiVersion<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get jQuery UI Version used.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::getVersion()"></a><h3>getVersion<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<em>Get the version used with the jQuery library</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::isEnabled()"></a><h3>isEnabled<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Is jQuery enabled?</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::javascriptCaptureEnd()"></a><h3>javascriptCaptureEnd<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Finish capturing arbitrary javascript to include in jQuery script</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::javascriptCaptureStart()"></a><h3>javascriptCaptureStart<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Capture arbitrary javascript to include in jQuery script</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::onLoadCaptureEnd()"></a><h3>onLoadCaptureEnd<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Stop capturing routines to run onLoad</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::onLoadCaptureStart()"></a><h3>onLoadCaptureStart<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Start capturing routines to run onLoad</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setCdnSsl()"></a><h3>setCdnSsl<span class="nb-faded-text">(
+          
+             
+            $flag,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set Use SSL on CDN Flag</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$flag</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setCdnVersion()"></a><h3>setCdnVersion<span class="nb-faded-text">(
+          string
+             
+            $version
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Use CDN, using version specified. Currently supported
+by Googles Ajax Library API are: 1.2.3, 1.2.6</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$version</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>deprecated</td>
+<td>As of version 1.8, use {@link setVersion()} instead.</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setLocalPath()"></a><h3>setLocalPath<span class="nb-faded-text">(
+          string
+             
+            $path,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set path to local jQuery library</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$path</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setRenderMode()"></a><h3>setRenderMode<span class="nb-faded-text">(
+          integer
+             
+            $mask,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set which parts of the jQuery enviroment should be rendered.</em><br><small><p>This function allows for a gradual refactoring of the jQuery code
+rendered by calling __toString(). Use ZendX_JQuery::RENDER_*
+constants. By default all parts of the enviroment are rendered.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$mask</td>
+<td style="white-space: normal;">integer |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>ZendX_JQuery::RENDER_ALL</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setUiCdnVersion()"></a><h3>setUiCdnVersion<span class="nb-faded-text">(
+          String
+             
+            $version
+            = 1.5.2,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set jQuery UI CDN Version</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$version</td>
+<td style="white-space: normal;">String |
+                </td>
+<td></td>
+<td>1.5.2</td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>deprecated</td>
+<td>As of 1.8 use {@link setUiVersion()}</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setUiLocalPath()"></a><h3>setUiLocalPath<span class="nb-faded-text">(
+          String
+             
+            $path,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set local path to jQuery UI library</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$path</td>
+<td style="white-space: normal;">String |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setUiVersion()"></a><h3>setUiVersion<span class="nb-faded-text">(
+          string
+             
+            $version,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set jQuery UI version used.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$version</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setVersion()"></a><h3>setVersion<span class="nb-faded-text">(
+          string
+             
+            $version,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the version of the jQuery library used.</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$version</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::setView()"></a><h3>setView<span class="nb-faded-text">(
+          Zend_View_Interface
+             
+            $view,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>Set view object</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$view</td>
+<td style="white-space: normal;">Zend_View_Interface |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::uiDisable()"></a><h3>uiDisable<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Disable jQuery UI Library Rendering</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::uiEnable()"></a><h3>uiEnable<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Enable jQuery UI Library Rendering</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::uiIsEnabled()"></a><h3>uiIsEnabled<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Check wheater currently the jQuery UI library is enabled.</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::useCdn()"></a><h3>useCdn<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Are we using the CDN?</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::useLocalPath()"></a><h3>useLocalPath<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Are we using a local path?</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::useUiCdn()"></a><h3>useUiCdn<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></span>
+</h3>
+<h4>Description</h4>
+<em>Is the jQuery Ui enabled and loaded from CDN?</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_JQuery_Container.html#ZendX_JQuery_View_Helper_JQuery_Container">ZendX_JQuery_View_Helper_JQuery_Container</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::useUiLocal()"></a><h3>useUiLocal<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">boolean</span>
+</h3>
+<h4>Description</h4>
+<em>Is the jQuery Ui loaded from local scope?</em><br><small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>boolean</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_JQuery_View_Helper_JQuery_Container">
+<h4>Properties</h4>
+<a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_captureLock">$_captureLock</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_enabled">$_enabled</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_isXhtml">$_isXhtml</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_javascriptSources">$_javascriptSources</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_javascriptStatements">$_javascriptStatements</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_jqueryLibraryPath">$_jqueryLibraryPath</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_loadSslCdnPath">$_loadSslCdnPath</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_onLoadActions">$_onLoadActions</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_renderMode">$_renderMode</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_stylesheets">$_stylesheets</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_uiEnabled">$_uiEnabled</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_uiPath">$_uiPath</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_uiVersion">$_uiVersion</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24_version">$_version</a>,
+      <a href="#ZendX_JQuery_View_Helper_JQuery_Container::%24view">$view</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_captureLock"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_captureLock
+          =
+          false</h3>
+<em>Indicates if a capture start method for javascript or onLoad has been called.Boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_enabled"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_enabled
+          =
+          false</h3>
+<em>Indicates wheater the jQuery View Helper is enabled.Boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_isXhtml"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_isXhtml
+          =
+          false</h3>
+<em>View is rendered in XHTML or not.Boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_javascriptSources"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_javascriptSources
+          =
+          array</h3>
+<em>Additional javascript files that for jQuery Helper components.Array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_javascriptStatements"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_javascriptStatements
+          =
+          array</h3>
+<em>Additional javascript statements that need to be executed after jQuery lib.Array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_jqueryLibraryPath"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_jqueryLibraryPath
+          =
+          null</h3>
+<em>Path to local webserver jQuery libraryString</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_loadSslCdnPath"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_loadSslCdnPath
+          =
+          false</h3>
+<em>Load CDN Path from SSL or Non-SSL?boolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_onLoadActions"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_onLoadActions
+          =
+          array</h3>
+<em>jQuery onLoad statements StackArray</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_renderMode"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_renderMode
+          =
+          ZendX_JQuery</h3>
+<em>Default Render Mode (all parts)Integer</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_stylesheets"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_stylesheets
+          =
+          array</h3>
+<em>Additional stylesheet files for jQuery related components.Array</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_uiEnabled"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_uiEnabled
+          =
+          false</h3>
+<em>jQuery UI Library EnabledBoolean</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_uiPath"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_uiPath
+          =
+          null</h3>
+<em>Local jQuery UI Path. Use Google CDN if
+variable is nullString</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_uiVersion"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_uiVersion
+          =
+          ZendX_JQuery</h3>
+<em>jQuery UI Google CDN VersionString</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$_version"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_version
+          =
+          ZendX_JQuery</h3>
+<em>Default CDN jQuery Library versionString</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_JQuery_Container::$view"></a><h3>
+<span class="nb-faded-text"> 
+          public 
+          </span>$view
+          =
+          null</h3>
+<em>View InstanceZend_View_Interface</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

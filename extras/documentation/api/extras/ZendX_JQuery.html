@@ -1,0 +1,360 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/JQuery.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/Json.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_JQuery" class="class">
+<h3>ZendX_JQuery</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_JQuery</a>
+             
+        </div>
+<label class="property-key">todo</label><div class="property-value">
+<a title="">Offer convenience methods to add a tab or accordion container/pane combination.</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>jQuery Global Class holding constants and static convienience methods.</em><br>
+<br><div id="methods_ZendX_JQuery">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_JQuery::enableForm()">enableForm</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery::enableView()">enableView</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery::encodeJson()">encodeJson</a>,
+      <div class="method">
+<a id="ZendX_JQuery::enableForm()"></a><h3>enableForm<span class="nb-faded-text">(
+          Zend_Form
+             
+            $form,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>jQuery-enable a form instance</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$form</td>
+<td style="white-space: normal;">Zend_Form |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery::enableView()"></a><h3>enableView<span class="nb-faded-text">(
+          Zend_View_Interface
+             
+            $view,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">void</span>
+</h3>
+<h4>Description</h4>
+<em>jQuery-enable a view instance</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$view</td>
+<td style="white-space: normal;">Zend_View_Interface |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>void</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery::encodeJson()"></a><h3>encodeJson<span class="nb-faded-text">(
+          mixed
+             
+            $value,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">mixed</span>
+</h3>
+<h4>Description</h4>
+<em>Encode Json that may include javascript expressions.</em><br><small><p>Take care of using the Zend_Json_Encoder to alleviate problems with the json_encode
+magic key mechanism as of now.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$value</td>
+<td style="white-space: normal;">mixed |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>mixed</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>see</td>
+<td>Zend_Json::encode</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="constants_ZendX_JQuery">
+<h4>Constants</h4>
+<a id="ZendX_JQuery::CDN_BASE_GOOGLE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CDN_BASE_GOOGLE<span class="nb-faded-text">
+         = http://ajax.googleapis.com/ajax/libs/</span>
+</h3>
+<em></em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::CDN_BASE_GOOGLE_SSL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CDN_BASE_GOOGLE_SSL<span class="nb-faded-text">
+         = https://ajax.googleapis.com/ajax/libs/</span>
+</h3>
+<em></em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::CDN_JQUERY_PATH_GOOGLE"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CDN_JQUERY_PATH_GOOGLE<span class="nb-faded-text">
+         = /jquery.min.js</span>
+</h3>
+<em>Always uses compressed version, because this is assumed to be the use case
+in production enviroment. An uncompressed version has to included manually.</em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::CDN_SUBFOLDER_JQUERY"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CDN_SUBFOLDER_JQUERY<span class="nb-faded-text">
+         = jquery/</span>
+</h3>
+<em></em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::CDN_SUBFOLDER_JQUERYUI"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>CDN_SUBFOLDER_JQUERYUI<span class="nb-faded-text">
+         = jqueryui/</span>
+</h3>
+<em></em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::DEFAULT_JQUERY_VERSION"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DEFAULT_JQUERY_VERSION<span class="nb-faded-text">
+         = 1.3.2</span>
+</h3>
+<em>Current default supported jQuery library version with ZendX_JQuery</em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::DEFAULT_UI_VERSION"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>DEFAULT_UI_VERSION<span class="nb-faded-text">
+         = 1.7.1</span>
+</h3>
+<em>Currently supported jQuery UI library version with ZendX_JQuery</em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_ALL"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_ALL<span class="nb-faded-text">
+         = 255</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_JAVASCRIPT"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_JAVASCRIPT<span class="nb-faded-text">
+         = 8</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_JQUERY_ON_LOAD"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_JQUERY_ON_LOAD<span class="nb-faded-text">
+         = 16</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_LIBRARY"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_LIBRARY<span class="nb-faded-text">
+         = 1</span>
+</h3>
+<em>Which parts of the the jQuery library should be rendered on echo'ing
+the jQuery library to the View. The constants act as bit-mask. This
+way the jQuery autogenerated code can be refactored based on personal needs.</em><br><small>
+</small><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_SOURCES"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_SOURCES<span class="nb-faded-text">
+         = 2</span>
+</h3>
+<em></em><br><br>
+</div>
+<a id="ZendX_JQuery::RENDER_STYLESHEETS"></a><div class="constant">
+<h3>
+<span class="nb-faded-text"> 
+        </span>RENDER_STYLESHEETS<span class="nb-faded-text">
+         = 4</span>
+</h3>
+<em></em><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

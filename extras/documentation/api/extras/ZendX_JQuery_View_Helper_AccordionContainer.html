@@ -1,0 +1,407 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/JQuery/View/Helper/AccordionContainer.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>ZendX/JQuery/View/Helper/UiWidget.php <span class="nb-faded-text">(Require Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_JQuery_View_Helper_AccordionContainer" class="class">
+<h3>ZendX_JQuery_View_Helper_AccordionContainer</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+<a href="ZendX_JQuery_View_Helper_UiWidget.html#ZendX_JQuery_View_Helper_UiWidget">ZendX_JQuery_View_Helper_UiWidget</a>
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_JQuery</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">View</a>
+             
+        </div>
+<label class="property-key">uses</label><div class="property-value">
+<a title="">Zend_Json</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>jQuery Accordion View Helper</em><br>
+<br><div id="methods_ZendX_JQuery_View_Helper_AccordionContainer">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AccordionContainer::accordionContainer()">accordionContainer</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AccordionContainer::addPane()">addPane</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AccordionContainer::getAccordionTemplate()">getAccordionTemplate</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AccordionContainer::getElementHtmlTemplate()">getElementHtmlTemplate</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AccordionContainer::setElementHtmlTemplate()">setElementHtmlTemplate</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::accordionContainer()"></a><h3>accordionContainer<span class="nb-faded-text">(
+          string
+             
+            $id
+            = null,
+          array
+             
+            $params
+            = array,
+          array
+             
+            $attribs
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string|ZendX_JQuery_View_Helper_AccordionContainer</span>
+</h3>
+<h4>Description</h4>
+<em>Render Accordion with the currently registered elements.</em><br><small><p>If no arguments are given, the accordion object is returned so that
+chaining the {@link addPane()} function allows to register new elements
+for an accordion.</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$id</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$params</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td>array</td>
+</tr>
+<tr>
+<td>$attribs</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td>array</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string|ZendX_JQuery_View_Helper_AccordionContainer</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>link</td>
+<td>http://docs.jquery.com/UI/Accordion</td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::addPane()"></a><h3>addPane<span class="nb-faded-text">(
+          string
+             
+            $id,
+          string
+             
+            $name,
+          string
+             
+            $content,
+          
+             
+            $options
+            = array,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_AccordionContainer.html#ZendX_JQuery_View_Helper_AccordionContainer">ZendX_JQuery_View_Helper_AccordionContainer</a></span>
+</h3>
+<h4>Description</h4>
+<em>Add Accordion Pane for the Accordion-Id</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$id</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$name</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$content</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">n/a</td>
+<td></td>
+<td>array</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_AccordionContainer.html#ZendX_JQuery_View_Helper_AccordionContainer">ZendX_JQuery_View_Helper_AccordionContainer</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::getAccordionTemplate()"></a><h3>getAccordionTemplate<span class="nb-faded-text">(
+          array
+             
+            $attribs,
+          string
+             
+            $html,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$attribs</td>
+<td style="white-space: normal;">array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$html</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::getElementHtmlTemplate()"></a><h3>getElementHtmlTemplate<span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">string</span>
+</h3>
+<h4>Description</h4>
+<small>
+</small><br><h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>string</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::setElementHtmlTemplate()"></a><h3>setElementHtmlTemplate<span class="nb-faded-text">(
+          string
+             
+            $htmlTemplate,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text"><a href="ZendX_JQuery_View_Helper_AccordionContainer.html#ZendX_JQuery_View_Helper_AccordionContainer">ZendX_JQuery_View_Helper_AccordionContainer</a></span>
+</h3>
+<h4>Description</h4>
+<em>Set the accordion element template</em><br><small>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody><tr>
+<td>$htmlTemplate</td>
+<td style="white-space: normal;">string |
+                </td>
+<td></td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="ZendX_JQuery_View_Helper_AccordionContainer.html#ZendX_JQuery_View_Helper_AccordionContainer">ZendX_JQuery_View_Helper_AccordionContainer</a></td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_JQuery_View_Helper_AccordionContainer">
+<h4>Properties</h4>
+<a href="#ZendX_JQuery_View_Helper_AccordionContainer::%24_elementHtmlTemplate">$_elementHtmlTemplate</a>,
+      <a href="#ZendX_JQuery_View_Helper_AccordionContainer::%24_panes">$_panes</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::$_elementHtmlTemplate"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_elementHtmlTemplate
+          =
+          null</h3>
+<em>string</em><br><small>
+</small><br><br>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AccordionContainer::$_panes"></a><h3>
+<span class="nb-faded-text"> 
+          protected 
+          </span>$_panes
+          =
+          array</h3>
+<em>array</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>

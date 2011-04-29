@@ -1,0 +1,298 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>File</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/default.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><base target="content"></base></head><body><script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(".filetree").treeview();
+          });
+
+          function jq_escape(myid)
+          {
+            return '#' + myid.replace(/(#|\$|:|\.|\(|\))/g, '\\$1');
+          }
+
+          function applySearchHash()
+          {
+            hashes = document.location.hash.substr(1, document.location.hash.length);
+            if (hashes != "")
+            {
+              hashes = hashes.split('/');
+              $.each(hashes, function(index, hash)
+              {
+                node = $(jq_escape(hash));
+                switch (node[0].nodeName)
+                {
+                  case 'DIV':
+                    tabs = node.parents('.tabs');
+                    $(tabs[0]).tabs('select', '#' + hash)
+                    break;
+                  case 'A':
+                    window.scrollTo(0, node.offset().top);
+                    break;
+                }
+              });
+            }
+          }
+
+          jQuery(function()
+          {
+            jQuery(".tabs").tabs();
+            applySearchHash();
+          });
+        </script><div xmlns="" class="content">
+<div class="sub-page-main-header-api-documentation"><h2>API Documentation</h2></div>
+<div class="dotted-line"></div>
+</div>
+<div xmlns="" id="content">
+<h1>ZendX/JQuery/View/Helper/AjaxLink.php</h1>
+<div class="file_menu">
+<a href="#includes">Includes</a> |<a href="#classes">Classes</a> |</div>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">category</label><div class="property-value"></div>
+<label class="property-key">copyright</label><div class="property-value"></div>
+<label class="property-key">license</label><div class="property-value"></div>
+<label class="property-key">package</label><div class="property-value"></div>
+<label class="property-key">subpackage</label><div class="property-value"></div>
+<label class="property-key">version</label><div class="property-value"></div>
+</div>
+<h2>Description</h2>Zend Framework<br><br><p>LICENSE</p>
+
+<p>This source file is subject to the new BSD license that is bundled
+with this package in the file LICENSE.txt.
+It is also available through the world-wide-web at this URL:
+http://framework.zend.com/license/new-bsd
+If you did not receive a copy of the license and are unable to
+obtain it through the world-wide-web, please send an email
+to license@zend.com so we can send you a copy immediately.</p>
+<br><a name="includes"></a><h2>Includes</h2>Zend/View/Helper/HtmlElement.php <span class="nb-faded-text">(Include Once)</span><br><a name="classes"></a><h2>Classes</h2>
+<div id="ZendX_JQuery_View_Helper_AjaxLink" class="class">
+<h3>ZendX_JQuery_View_Helper_AjaxLink</h3>
+<div class="properties">
+<h1>Properties</h1>
+<label class="property-key">Extends</label><div class="property-value">
+         </div>
+<label class="property-key">Implements</label><div class="property-value"> 
+      </div>
+<label class="property-key">copyright</label><div class="property-value">
+<a title="">Copyright (c) 2005-2010 Zend Technologies USA Inc. (http://www.zend.com)</a>
+             
+        </div>
+<label class="property-key">license</label><div class="property-value">
+<a title="">http://framework.zend.com/license/new-bsd     New BSD License</a>
+             
+        </div>
+<label class="property-key">package</label><div class="property-value">
+<a title="">ZendX_JQuery</a>
+             
+        </div>
+<label class="property-key">subpackage</label><div class="property-value">
+<a title="">View</a>
+             
+        </div>
+<label class="property-key">uses</label><div class="property-value">
+<a title="">Zend_Json</a>
+             
+        </div>
+<label class="property-key">Abstract</label><div class="property-value">No 
+      </div>
+<label class="property-key">Final</label><div class="property-value">No 
+      </div>
+</div>
+<h4>Description</h4>
+<em>jQuery Accordion Pane, goes with Accordion Container</em><br>
+<br><div id="methods_ZendX_JQuery_View_Helper_AjaxLink">
+<h4>Methods</h4>
+<a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AjaxLink::_determineRequestHandler()">_determineRequestHandler</a>,
+      <a style="font-style: italic;" href="#ZendX_JQuery_View_Helper_AjaxLink::ajaxLink()">ajaxLink</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_AjaxLink::_determineRequestHandler()"></a><h3>_determineRequestHandler<span class="nb-faded-text">(
+          Array
+             
+            $options,
+          Boolean
+             
+            $hasParams,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">String</span>
+</h3>
+<h4>Description</h4>
+<em>Determine which request method (GET or POST) should be used.</em><br><small><p>Normally the request method is determined implicitly by the rule,
+if addiotional params are sent, POST, if not GET. You can overwrite
+this behaviiour by implicitly setting $options['method'] = "POST|GET";</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">Array |
+                </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$hasParams</td>
+<td style="white-space: normal;">Boolean |
+                </td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>String</td>
+<td></td>
+</tr></tbody>
+</table>
+</div>
+<div class="method">
+<a id="ZendX_JQuery_View_Helper_AjaxLink::ajaxLink()"></a><h3>ajaxLink<span class="nb-faded-text">(
+          String
+             
+            $label,
+          String
+             
+            $url,
+          Array
+             
+            $options
+            = null,
+          Array
+             
+            $params
+            = null,
+          
+          )
+        </span>
+        :
+        <span class="nb-faded-text">String</span>
+</h3>
+<h4>Description</h4>
+<em>Create an anchor that enables ajax-based requests and handling of the response.</em><br><small><p>This helper creates links that make XmlHttpRequests to the server. It allows to
+inject the response into the DOM. Fancy effects going with the links can be enabled
+via simple callback shortnames. The functionality is mostly controlled by the $options
+array:</p>
+
+<p>$options
+ Key                Behaviour
+ =================================================================================
+ 'update'        Update a container with the content fetched from $url
+ 'method'        Explicit Requesting method mimicing the jQuery functionality: GET, POST
+ 'inline'        True or false, wheater to inline the javascript in onClick=""
+                    atttribute or append it to jQuery onLoad Stack.
+ 'complete'      String specifies javascript called after successful request or a
+                    shortname of a jQuery effect that should be applied to the 'update' element.
+ 'beforeSend'   String specifies javascript called before the request is sent, or a
+                    shortname of a jQuery effect that should be applied to the link clicked.
+ 'noscript'     True/false, include a noscript variant that directly requests
+                    the given $url (make sure to check $request->isXmlHttpRequest())
+ 'dataType'     What type of data is the response returning? text, html, json?
+ 'title'            HTML Attribute title of the Anchor
+ 'class'            HTML Attribute class of the Anchor
+ 'id'           HTML Attribute id of the Anchor
+ 'attribs'      Array of Key-Value pairs with HTML Attribute names and their content.</p>
+
+<p>BeforeSend Callback:
+Can include shortcuts as a string assignment to fire of effects before sending of request.
+Possible shortcuts are 'fadeOut', 'fadeOutSlow', 'hide', 'hideSlow', 'slideUp', 'flash',</p>
+</small><br><h4>Arguments</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>$label</td>
+<td style="white-space: normal;">String |
+                </td>
+<td>Urls Title</td>
+<td></td>
+</tr>
+<tr>
+<td>$url</td>
+<td style="white-space: normal;">String |
+                </td>
+<td>Link to Point to</td>
+<td></td>
+</tr>
+<tr>
+<td>$options</td>
+<td style="white-space: normal;">Array |
+                </td>
+<td></td>
+<td>null</td>
+</tr>
+<tr>
+<td>$params</td>
+<td style="white-space: normal;">Array |
+                </td>
+<td>Key Value Pairs of GET/POST Parameters</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<h4>Return value</h4>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr>
+<td>String</td>
+<td></td>
+</tr></tbody>
+</table>
+<h4>Tags</h4>
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>example</td>
+<td>$options = array(&amp;#039;beforeSend&amp;#039; =&amp;gt; &amp;#039;hideSlow&amp;#039;, &amp;#039;complete&amp;#039; =&amp;gt; &amp;#039;show&amp;#039;);</td>
+</tr>
+<tr>
+<td>link</td>
+<td>http://docs.jquery.com/Ajax</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="properties_ZendX_JQuery_View_Helper_AjaxLink">
+<h4>Properties</h4>
+<a href="#ZendX_JQuery_View_Helper_AjaxLink::%24currentLinkCallbackId">$currentLinkCallbackId</a>,
+      <div class="method">
+<a id="ZendX_JQuery_View_Helper_AjaxLink::$currentLinkCallbackId"></a><h3>
+<span class="nb-faded-text"> 
+          private 
+          static </span>$currentLinkCallbackId
+          =
+          1</h3>
+<em>Static because multiple instances accross views of AjaxLink could reset the counter and a
+subcontainer because of this single private class variable seems too much overhead.</em><br><small>
+</small><br><br>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox</a>.</small></body></html>
